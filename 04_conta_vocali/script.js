@@ -3,6 +3,7 @@
 const word = 'javascript';
 const onlyVocal = 'aeiouOUEii';
 const noVocal = 'qrPnbmBBLPTRDsdfghwk';
+const prova ="Questa frase contiene 12 vocali";
 
 // Dichiara la funzione qui.
 
@@ -12,11 +13,22 @@ function contaVocali(stringa){
     const vocali =["a", "e", "i", "o", "u"];
     for (let i=0; i<stringa.length; i++){
         const lettera = stringa[i];
-        if(vocali.includes(lettera)){
+        const controllo = isInArray(lettera, vocali);
+        if(controllo){
             risultato++;
         }
     }
     return risultato;
+}
+
+function isInArray(elemento, elenco){
+    let isPresent = false;
+    for (let i=0; i<elenco.length && isPresent === false; i++){
+        if(elenco[i] === elemento){
+            isPresent = true;
+        }
+    }    
+    return isPresent;
 }
 
 
@@ -33,3 +45,6 @@ console.log("La stringa" ,onlyVocal, "contiene" ,numVocali2, "vocali");
 
 const numVocali3 = contaVocali(noVocal);
 console.log("La stringa" ,noVocal, "contiene" ,numVocali3, "vocali");
+
+const numVocali4 = contaVocali(prova);
+console.log("La stringa" ,prova, "contiene" ,numVocali4, "vocali");
